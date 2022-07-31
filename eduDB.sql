@@ -53,13 +53,13 @@ CREATE TABLE IF NOT EXISTS lop(
     msgv INTEGER NOT NULL,
     giohoc time,
     ngaytrongtuan INTEGER,
-    namhoc INTEGER NOT NULL DEFAULT date_part('year',CURRENT_DATE);
+    namhoc INTEGER NOT NULL DEFAULT date_part('year',CURRENT_DATE),
     kyhoc INTEGER NOT NULL DEFAULT date_part('month',CURRENT_DATE)/4,
     phonghoc varchar(255) NOT NULL,
     status boolean not null default true,
     foreign key(mamonhoc) references monhoc(mamonhoc),
     foreign key(msgv) references giaovien(msgv),
-    foreign key phonghoc references lophoc(phonghoc)
+    foreign key(phonghoc) references lophoc(phonghoc)
 );
 
 
