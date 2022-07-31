@@ -37,7 +37,7 @@
 
 // Perform query
     $class_id = $_POST['class_id'];
-	$query = "SELECT * FROM (((dangky inner join lop on lop.class_id = dangky.class_id) inner join baikiemtra on dangky.mssv = baikiemtra.mssv)inner join monhoc on monhoc.mamonhoc = lop.mamonhoc)inner join hocsinh on dangky.mssv = hocsinh.mssv WHERE lop.class_id = $class_id ORDER BY namhoc ASC, kyhoc ASC" ;
+	$query = "SELECT * FROM (((dangky inner join lop on lop.class_id = dangky.class_id) inner join baikiemtra on (dangky.mssv = baikiemtra.mssv and dangky.class_id = baikiemtra.class_id))inner join monhoc on monhoc.mamonhoc = lop.mamonhoc)inner join hocsinh on dangky.mssv = hocsinh.mssv WHERE lop.class_id = $class_id ORDER BY namhoc ASC, kyhoc ASC" ;
 if ($result = $conn -> getdata($query)) {
     if($conn -> num_rows($query) == 1){ $results =array($result) ;}
     else if($conn -> num_rows($query) > 1) {$results = $result;}
