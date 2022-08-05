@@ -4,7 +4,7 @@
 	    header('Location: index.php'); // Di chuyển đến trang chủ
     }
     $user_signin = $db->real_escape_string(@$_POST['user_signin']);
-    $pass_signin = ($_POST['pass_signin']);
+    $pass_signin = $db->real_escape_string($_POST['pass_signin']);
     $type = $_POST['typesignin'];
     // Lệnh SQL kiểm tra sự tồn tại của username
     $show_alert = "<script>$('#formSignin .alert').removeClass('hidden');</script>";
